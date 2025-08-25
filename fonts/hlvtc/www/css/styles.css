@@ -1,0 +1,464 @@
+/* line 1, ../Utilisateurs/Eliot/Documents/2022/V2/sass/styles.scss */
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-font-smoothing: antialiased;
+  block-size: 100%;
+  inline-size: 100%;
+  width: 960px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 200vh;
+  box-sizing: border-box;
+}
+
+/* line 14, ../Utilisateurs/Eliot/Documents/2022/V2/sass/styles.scss */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* line 17, ../Utilisateurs/Eliot/Documents/2022/V2/sass/styles.scss */
+body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* line 21, ../Utilisateurs/Eliot/Documents/2022/V2/sass/styles.scss */
+.parent {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 0;
+  grid-row-gap: 0;
+}
+
+/* line 28, ../Utilisateurs/Eliot/Documents/2022/V2/sass/styles.scss */
+.footer {
+  grid-area: 5 / 1 / 6 / 6;
+}
+
+/* line 29, ../Utilisateurs/Eliot/Documents/2022/V2/sass/styles.scss */
+.columnleft {
+  grid-area: 2 / 1 / 5 / 4;
+}
+
+/* line 30, ../Utilisateurs/Eliot/Documents/2022/V2/sass/styles.scss */
+.columnright {
+  grid-area: 2 / 4 / 5 / 6;
+}
+
+/* line 31, ../Utilisateurs/Eliot/Documents/2022/V2/sass/styles.scss */
+.header {
+  grid-area: 1 / 1 / 2 / 6;
+}
+
+/* line 33, ../Utilisateurs/Eliot/Documents/2022/V2/sass/styles.scss */
+.footer {
+  z-index: 2;
+  position: relative;
+  background: #efefef;
+  border-top: 1px solid #000;
+}
+
+/* line 39, ../Utilisateurs/Eliot/Documents/2022/V2/sass/styles.scss */
+.main-part1 {
+  flex-wrap: wrap;
+  background-color: #efefef;
+  display: flex;
+  border: 1px solid #000;
+  margin: 20px;
+  background: #efefef;
+  position: fixed;
+  z-index: 2;
+}
+
+/* line 50, ../Utilisateurs/Eliot/Documents/2022/V2/sass/styles.scss */
+.main-part {
+  padding: 0 0;
+}
+
+/* line 53, ../Utilisateurs/Eliot/Documents/2022/V2/sass/styles.scss */
+.bar2 {
+  bottom: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 1px;
+  background: #000;
+}
+
+/* line 64, ../Utilisateurs/Eliot/Documents/2022/V2/sass/styles.scss */
+.bar {
+  right: -20px;
+  position: absolute;
+  top: 0;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  z-index: 10;
+  height: 100%;
+  width: 1px;
+  background: #000;
+}
+
+/* line 75, ../Utilisateurs/Eliot/Documents/2022/V2/sass/styles.scss */
+.circle {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 1.5em;
+  height: 1.5em;
+  border: 1px solid;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+/* line 85, ../Utilisateurs/Eliot/Documents/2022/V2/sass/styles.scss */
+.circle:hover {
+  background-color: #000000;
+}
+
+/* line 88, ../Utilisateurs/Eliot/Documents/2022/V2/sass/styles.scss */
+.coin1 {
+  position: relative;
+  left: -25px;
+  z-index: -2;
+  top: -10px;
+}
+
+/* line 94, ../Utilisateurs/Eliot/Documents/2022/V2/sass/styles.scss */
+.coin2 {
+  top: -10px;
+  position: relative;
+  left: 25px;
+  align-items: right;
+  float: right;
+  transform: scaleX(-1);
+  z-index: -2;
+}
+
+/* line 103, ../Utilisateurs/Eliot/Documents/2022/V2/sass/styles.scss */
+body {
+  background-color: #efefef;
+  margin: 0;
+  min-block-size: 100%;
+  min-inline-size: 100%;
+  place-content: inherit;
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+/* line 118, ../Utilisateurs/Eliot/Documents/2022/V2/sass/styles.scss */
+p {
+  font-weight: 400;
+  font-family: 'ItalianGaramond';
+  font-size: 19px;
+  text-align: left;
+  letter-spacing: -0.5px;
+  line-height: 21px;
+  color: #000000;
+  margin-top: 13px;
+  margin-left: 3px;
+}
+
+/* line 129, ../Utilisateurs/Eliot/Documents/2022/V2/sass/styles.scss */
+.icon-phone {
+  background-image: url(https://public-image.co/assets/images/icons/icon-phone.svg);
+}
+
+/* line 132, ../Utilisateurs/Eliot/Documents/2022/V2/sass/styles.scss */
+.icon {
+  color: black;
+  position: relative;
+  display: -webkit-inline-box;
+  display: inline-flex;
+  width: 1em;
+  height: 1.272727273em;
+  margin-bottom: -0.272727273em;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 1em 1.272727273em;
+}
+
+/* line 144, ../Utilisateurs/Eliot/Documents/2022/V2/sass/styles.scss */
+.header1 {
+  padding-top: 7px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+/* line 149, ../Utilisateurs/Eliot/Documents/2022/V2/sass/styles.scss */
+.header {
+  margin-top: 0;
+  z-index: 2;
+  position: relative;
+  background: #efefef;
+}
+
+/* line 156, ../Utilisateurs/Eliot/Documents/2022/V2/sass/styles.scss */
+.croix {
+  position: absolute;
+  z-index: 15;
+  transition: all .1s ease-out;
+}
+
+/* line 162, ../Utilisateurs/Eliot/Documents/2022/V2/sass/styles.scss */
+#crosshair-v {
+  height: 200vh;
+  margin: auto;
+  position: absolute;
+  z-index: 15;
+}
+
+/* line 169, ../Utilisateurs/Eliot/Documents/2022/V2/sass/styles.scss */
+#crosshair-h {
+  width: 100%;
+  margin: auto;
+  position: absolute;
+  z-index: 15;
+}
+
+/* line 176, ../Utilisateurs/Eliot/Documents/2022/V2/sass/styles.scss */
+.hair {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: -10px;
+  margin-left: -10px;
+  background: transparent;
+  border-top: 1px solid #000;
+  border-left: 1px solid #000;
+  pointer-events: none;
+  z-index: 15;
+}
+
+/* line 188, ../Utilisateurs/Eliot/Documents/2022/V2/sass/styles.scss */
+#mousepos {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  margin: 10px;
+  color: black;
+  background: rgba(255, 255, 255, 0.541);
+  z-index: 1;
+  font-family: 'ItalianGaramond';
+  font-size: 15px;
+}
+
+/* line 199, ../Utilisateurs/Eliot/Documents/2022/V2/sass/styles.scss */
+p .highlight::before {
+  content: " ";
+  display: block;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  inset: 0 0 0 0;
+  background: rgba(255, 255, 255, 0.623);
+  transition: transform .5s ease;
+}
+
+/* line 209, ../Utilisateurs/Eliot/Documents/2022/V2/sass/styles.scss */
+.highlight {
+  font-family: 'ItalianGaramond';
+  font-size: 19px;
+  position: relative;
+  letter-spacing: -0.5px;
+  line-height: 21px;
+}
+
+/* line 216, ../Utilisateurs/Eliot/Documents/2022/V2/sass/styles.scss */
+.highlight::before {
+  transform: scaleX(0);
+  transform-origin: bottom right;
+}
+
+/* line 220, ../Utilisateurs/Eliot/Documents/2022/V2/sass/styles.scss */
+.highlight:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* line 224, ../Utilisateurs/Eliot/Documents/2022/V2/sass/styles.scss */
+.highlight::before {
+  content: " ";
+  display: block;
+  z-index: 3;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  inset: 0 0 0 0;
+  background: rgba(255, 255, 255, 0.623);
+  z-index: -1;
+  transition: transform .5s ease;
+}
+
+/* line 235, ../Utilisateurs/Eliot/Documents/2022/V2/sass/styles.scss */
+.cadrehover {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* line 242, ../Utilisateurs/Eliot/Documents/2022/V2/sass/styles.scss */
+.cadrehover .bckgd {
+  width: 100%;
+  height: 100vh;
+  background: #000;
+  position: absolute;
+  z-index: 11;
+}
+
+/* line 249, ../Utilisateurs/Eliot/Documents/2022/V2/sass/styles.scss */
+.cadrehover .hero-image {
+  position: absolute;
+  z-index: 12;
+  width: 30%;
+  height: 70%;
+  background: url("../images/img1.jpg") no-repeat center;
+  background-size: cover;
+  opacity: 0.7;
+}
+
+/* line 258, ../Utilisateurs/Eliot/Documents/2022/V2/sass/styles.scss */
+.cadrehover h1 {
+  position: relative;
+  z-index: 20;
+  font-size: 12vw;
+  font-family: "GrandSlang";
+  color: #fff;
+}
+
+/* line 266, ../Utilisateurs/Eliot/Documents/2022/V2/sass/styles.scss */
+marquee {
+  font-size: 20px;
+  background-color: black;
+  color: white;
+  margin-top: -5px;
+  padding: 6px 0;
+  width: calc(100% + 40px);
+  margin-left: -20px;
+  flex-shrink: 0;
+}
+
+/* line 276, ../Utilisateurs/Eliot/Documents/2022/V2/sass/styles.scss */
+.cadregauche {
+  height: 100%;
+  margin: 20px;
+  height: 350px;
+  background: url("../images/img1.jpg") no-repeat center;
+  background-size: cover;
+  background-position: center;
+  z-index: 8;
+}
+
+/* line 285, ../Utilisateurs/Eliot/Documents/2022/V2/sass/styles.scss */
+img {
+  max-width: 100%;
+}
+
+/* line 288, ../Utilisateurs/Eliot/Documents/2022/V2/sass/styles.scss */
+.columnleft {
+  z-index: 2;
+  position: relative;
+  background: #efefef;
+}
+
+/* line 293, ../Utilisateurs/Eliot/Documents/2022/V2/sass/styles.scss */
+.columnright {
+  z-index: 2;
+  position: relative;
+  background: #efefef;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  scroll-snap-type: y mandatory;
+  padding: 20px;
+}
+
+/* line 305, ../Utilisateurs/Eliot/Documents/2022/V2/sass/styles.scss */
+.noselect {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                                      supported by Chrome, Edge, Opera and Firefox */
+}
+
+/* line 315, ../Utilisateurs/Eliot/Documents/2022/V2/sass/styles.scss */
+.mouse {
+  width: 25px;
+  height: 45px;
+  border: 1.5px solid white;
+  border-radius: 30px;
+  position: relative;
+  z-index: 20;
+}
+
+/* line 322, ../Utilisateurs/Eliot/Documents/2022/V2/sass/styles.scss */
+.mouse::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  border-radius: 50%;
+  opacity: 1;
+  animation: wheel 2s infinite;
+  -webkit-animation: wheel 2s infinite;
+}
+
+@keyframes wheel {
+  to {
+    opacity: 0;
+    top: 30px;
+  }
+}
+
+@-webkit-keyframes wheel {
+  to {
+    opacity: 0;
+    top: 30px;
+  }
+}
+
+@font-face {
+  font-family: ItalianGaramond;
+  src: url("../fonts/ItalianGaramondItalic.woff2");
+}
+
+@font-face {
+  font-family: ItalianGaramond;
+  font-style: italic;
+  src: url("../fonts/ItalianGaramond.woff2");
+}
+
+/*# sourceMappingURL=styles.css.map */

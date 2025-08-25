@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <title>Eliot Jeanjean</title>
+  <link rel="stylesheet" href="sass/styles.css">
+  <link rel="stylesheet" type="text/css" href="css/menu.css">
+  <meta name="viewport" content="initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="initial-scale=1.0">
+  <meta property="og:title" content="Eliot Jeanjean" />
+  <meta property="og:description" content="Etudiant en mode et image" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.eliotjeanjean.fr" />
+  <meta property="og:image" content="favicon.png" />
+  <script type='text/javascript' src='./js/index.js'></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.0/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.2/Flip.min.js"></script>
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous">
+</script>
+</head>
+<body>
+  <div class="cadrehover">
+    <div class="hero-image">
+      <div class="grid-home">
+        <div class="logo-main"></div>
+        <div class="item-home"></div>
+        <div class="item-home"></div>
+        <div class="item-home"></div>
+        <div class="item-home"></div>
+        <div class="item-home"></div>
+        <div id="home1" class="item-home"></div>
+        <div id="home1" class="item-home"></div>
+        <div id="home1" class="item-home"></div>
+        <div id="home2" class="item-home"></div>
+        <div id="home2" class="item-home"></div>
+        <div id="home2" class="item-home"></div>
+        <div id="home3" class="item-home"></div>
+        <div id="home3" class="item-home"></div>
+        <div id="home3" class="item-home"></div>
+        <div id="home4" class="item-home"></div>
+        <div id="home4" class="item-home"></div>
+        <div id="home4" class="item-home"></div>
+        <div id="home5" class="item-home"></div>
+        <div id="home5" class="item-home"></div>
+                <!--<div class="logo-main"></div>-->
+        <div id="home5" class="item-home logo"></div>
+      </div>
+    </div>
+    <div class="souriscroll">
+      <div class="mouse"></div>
+    </div>
+    <!--<h1 id="time" class="noselect titretop"></h1>-->
+    <div class="bckgd">
+    </div>
+  </div>
+  <div id="crosshair-h" class="hair croix"></div>
+  <div id="crosshair-v" class="hair croix"></div>
+<div class="main-part2">
+  <span id="mousepos" class="croix">X: 0px, Y: 0px</span>
+  <div class="main-part1">
+    <div class="main-part">
+      <div class="parent">
+        <div class="header">
+          <div class="row">
+            <div class="header-left">
+              <div class="bar2"></div>
+              <p>
+                <span class="highlight">©<em>Eliot Jeanjean</em></span><em>✧</em> étudiant en mode et image<br>
+                <i class="icon icon-phone"></i>+33 6 51 23 00 29<br>
+                <em> <a href="mailto:eliot.jeanjean@gmail.com">eliot.jeanjean@gmail.com</a></em>
+                <br>Paris, France.
+              </p>
+            </div>
+            <div class="header-right">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+        <div class="columnleft">
+          <div class="cadregauche highlight">
+            <div class="slider" id="hero">
+            </div>
+          </div>
+        </div>
+        <div class="columnright">
+          <div class="bar"></div>
+          <div class="columnrightscroll">
+            <nav class="menu">
+              <span id="Jejudo" class="boutton" data-image="../img/img1.jpg" data-link="www.google.com">JEJU-DO</span>
+              <span id="fete" class="boutton" data-image="../img/img3.jpg">LA FÊTE</span>
+
+            </nav>
+          </div>
+        </div>
+        <div class="footer">
+          <marquee class="noselect" width="100%" direction="left">
+            <span>  ༻❁༺  ༻❁༺  ༻❁༺  ༻❁༺  ༻❁༺  </span>
+            <span>  ༻❁༺  ༻❁༺  ༻❁༺  ༻❁༺  ༻❁༺  </span>
+            <span>  ༻❁༺  ༻❁༺  ༻❁༺  ༻❁༺  ༻❁༺  </span>
+          </marquee>
+          <img class="coin1" src="icones/coin.svg" width="29px" height="29px" alt="yes" srcset="icones/coin.svg"/>
+          <img class="coin2" src="icones/coin.svg" width="29px" height="29px" alt="yes" srcset="icones/coin.svg"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.2/Flip.min.js"></script>
+<script type="text/javascript">
+  var s = document.querySelector(".croix");
+  zoomLensMove = function(a) {
+     a = a || window.event;
+     s.style.left = a.clientX - 10 + "px";
+     s.style.top = a.clientY - 10 + "px";
+  };
+TweenMax.from(".bar", 2, {
+  height: "0%",
+  ease: Expo.easeInOut,
+  delay: 1,
+});
+TweenMax.from(".bar2", 2, {
+  width: "0%",
+  ease: Expo.easeInOut,
+  delay: 1,
+});
+TweenMax.from(".circle", 1, {
+      scale: 0,
+      ease: Expo.easeInOut,
+      delay: 1,
+      });
+</script>
+<script  src="./js/curseur.js"></script>
+<script  src="./js/grillehome.js"></script>
+</corps>
+</body>
+</html>

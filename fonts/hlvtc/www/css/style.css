@@ -1,0 +1,315 @@
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-font-smoothing: antialiased;
+  block-size: 100%;
+  inline-size: 100%;
+  width: 960px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 200vh;
+  box-sizing: border-box;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.parent {
+display: grid;
+grid-template-columns: repeat(5, 1fr);
+grid-template-rows: repeat(5, 1fr);
+grid-column-gap: 0;
+grid-row-gap: 0;
+}
+.footer { grid-area: 5 / 1 / 6 / 6; }
+.columnleft { grid-area: 2 / 1 / 5 / 4; }
+.columnright { grid-area: 2 / 4 / 5 / 6; }
+.header { grid-area: 1 / 1 / 2 / 6; }
+
+.footer {
+  z-index:2;
+  position:relative;
+  background :#efefef;
+  border-top: 1px solid #000;
+}
+.main-part1 {
+flex-wrap: wrap;
+background-color: #efefef;
+display:flex;
+border: 1px solid #000;
+margin:20px;
+background :#efefef;
+position: fixed;
+z-index: 2;
+}
+
+.main-part{
+padding: 0 0;
+}
+.bar2 {
+  bottom:0;
+  position:absolute;
+  left: 0; 
+  right: 0;  
+  margin-left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 1px;
+  background: #000;
+}
+.bar {
+  right: -20px;
+  position: absolute;
+  top: 0;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  z-index: 10;
+  height: 100%;
+  width: 1px;
+  background: #000;
+}
+.circle {
+  position: absolute;
+  right:20px;
+  top: 20px;
+  width: 1.5em;
+  height: 1.5em;
+  border: 1px solid;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+.circle:hover {
+  background-color: #000000;
+}
+.coin1 {
+  position: relative;
+  left: -25px;
+  z-index: -2;
+  top: -10px;
+}
+.coin2 {
+  top: -10px;
+  position: relative;
+  left: 25px;
+  align-items:right;  
+  float:right;
+  transform: scaleX(-1);
+  z-index: -2;
+}
+body{
+  background-color: #efefef;
+  margin: 0;
+  min-block-size: 100%;
+  min-inline-size: 100%;
+  place-content:inherit;
+  flex-wrap: wrap;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  position:absolute;
+  height:100%;
+  width:100%;
+}
+
+p {
+  font-weight: 400;
+  font-family: 'ItalianGaramond';
+  font-size: 19px;
+  text-align: left;
+  letter-spacing: -0.5px;
+  line-height: 21px;
+  color: #000000;
+  margin-top:13px;
+  margin-left:3px;
+}
+.icon-phone {
+    background-image: url(https://public-image.co/assets/images/icons/icon-phone.svg);
+  }
+.icon {
+  color: black;
+  position: relative;
+  display: -webkit-inline-box;
+  display: inline-flex;
+  width: 1em;
+  height: 1.272727273em;
+  margin-bottom: -0.272727273em;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 1em 1.272727273em;
+  }
+.header1 {
+  padding-top: 7px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.header {
+  margin-top:0;
+  z-index:2;
+  position:relative;
+  background :#efefef;
+}
+
+.croix {
+  position: absolute;
+  z-index: 15;
+  transition: all .1s ease-out;
+  }
+
+#crosshair-v {
+  height: 200vh;
+  margin: auto;
+  position: absolute;
+  z-index: 15;
+  }
+
+#crosshair-h {
+  width: 100%;
+  margin: auto;
+  position: absolute;
+  z-index: 15;
+  }
+
+.hair {
+      position: absolute;
+     top:0;
+     left:0;
+     margin-top: -10px;
+     margin-left: -10px;
+     background: transparent;
+     border-top: 1px solid #000;
+     border-left: 1px solid #000;
+     pointer-events: none;
+     z-index: 15;
+   }
+   #mousepos {
+     position: absolute;
+     top:0; left:0;
+     padding: 10px;
+     margin: 10px;
+     color: rgb(0, 0, 0);
+     background: rgba(255, 255, 255, 0.541);
+     z-index: 1;
+     font-family: 'ItalianGaramond';
+     font-size: 15px;
+   }
+   p .highlight::before {
+    content: " ";
+    display: block;
+    z-index: -1;
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    inset: 0 0 0 0;
+    background: rgba(255, 255, 255, 0.623);
+    transition: transform .5s ease;
+  }
+   .highlight{
+    font-family: 'ItalianGaramond';
+    font-size: 19px;
+    position: relative;
+    letter-spacing: -0.5px;
+    line-height: 21px;
+  }
+ .highlight::before {  
+    transform: scaleX(0);
+    transform-origin: bottom right;
+  }
+  .highlight:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+  .highlight::before {
+    content: " ";
+    display: block;
+    z-index: 3;
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    inset: 0 0 0 0;
+    background: rgba(255, 255, 255, 0.623);
+    z-index: -1;
+    transition: transform .5s ease;
+  }
+  .cadrehover{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .cadrehover .bckgd{
+    width: 100%;
+    height: 100vh;
+    background: #000;
+    position: absolute;
+    z-index: 11;
+  }
+  .cadrehover .hero-image {
+    position: absolute;
+    z-index: 12;
+    width: 30%;
+    height: 70%;
+    background: url("../images/img1.jpg") no-repeat center;
+    background-size: cover;
+    opacity: 0.7;
+ } 
+ .cadrehover h1 {
+  position: relative;
+  z-index: 20;
+  font-size: 12vw;
+  font-family: "GrandSlang";
+  color: #fff;
+}
+
+  marquee {
+    font-size: 20px;
+    background-color:black;
+    color: white;
+    margin-top: -5px;
+    padding: 6px 0;
+    width: calc(100% + 40px);
+    margin-left: -20px;
+    flex-shrink: 0;
+   }
+   .cadregauche{
+     height:100%;
+    margin:20px;
+    height: 350px;
+    background: url("../images/img1.jpg") no-repeat center;
+    background-size: cover;
+    background-position: center;
+    z-index:8;
+  }
+  img {
+    max-width: 100%;
+   }
+   .columnleft {
+    z-index:2;
+    position:relative;
+    background :#efefef;
+   }
+   .columnright {
+    z-index:2;
+    position:relative;
+    background :#efefef;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    scroll-snap-type: y mandatory;
+    padding:20px;
+  }
+  .noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+  }
+@font-face { font-family: ItalianGaramond; src: url('../fonts/ItalianGaramondItalic.woff2');}
+@font-face { font-family: ItalianGaramond; font-style: italic; src: url('../fonts/ItalianGaramond.woff2');};

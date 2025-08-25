@@ -1,0 +1,10 @@
+User-agent: *
+Disallow: /wp-admin/
+Allow: /wp-admin/admin-ajax.php
+Disallow: /wp-includes/
+Disallow: /wp-content/
+Disallow: /cgi-bin
+Disallow: /wp-login.php
+Disallow: /*/comments
+Disallow: /category/non-classe
+Sitemap: https://www.eliotjeanjean.fr/sitemap_index.xml

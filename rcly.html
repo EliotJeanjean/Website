@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <title>Eliot Jeanjean</title>
+  <link rel="stylesheet" href="sass/stylespages.css">
+  <link rel="stylesheet" type="text/css" href="css/menupages.css">
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="Eliot Jeanjean" />
+  <meta property="og:description" content="Etudiant en mode et image" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.eliotjeanjean.fr" />
+  <meta property="og:image" content="favicon.png" />
+</head>
+<body>
+  <div class="page1">
+  <div id="crosshair-h" class="hair croix"></div>
+  <div id="crosshair-v" class="hair croix"></div>
+<div class="main-part2">
+  <div class="main-part1">
+    <div class="main-part">
+      <div class="parent">
+        <div class="header">
+          <div class="row2">
+            <div class="header-left">
+              <div class="bar2"></div>
+              <p>
+                <span class="highlight"><em><em>✣</em> As Red As Eyes</em></span>
+                <br>
+                <em>A musical film telling the encounter between two friends upon the arrival of an unknown creature. First video project realized in a short time with few resources. <br>Shot and edited by me, props and looks made by me.</em>
+                <a href="https://www.youtube.com/watch?v=swiEUgkvDJE"><button class="bouttonpage">Watch the movie</button></a>  
+              </p>
+            </div>
+              <div class="header-right">
+              <div class="circlezoom hoverzoom"><div class="circle button1"><div class="icon-menu"></div></div></div>
+              <a href="www.eliotjeanjean.fr"><div class="circlezoom1 hoverzoom"><div class="circle button1"><div class="icon-home"></div></div></div></a>
+            </div>
+          </div>
+        </div>
+        <div class="carousel">
+          <div class="container2">
+            <ul class="image-gallery">
+              <li>
+                <img src="../../img/replace/replace1.webp" onclick="openModal();currentSlide(1)" alt="">
+              </li>
+
+              <li>
+                <img src="../../img/replace/replace2.webp" onclick="openModal();currentSlide(2)" alt="">
+              </li>
+              <li>
+                <video onclick="openModal();currentSlide(3)" autoplay loop muted playsinline>
+                  <!-- You can provide multiple sources for cross-browser compatibility -->
+                  <source src="../../img/rcly/rcly.mp4" type="video/mp4">
+                  <!-- Add additional sources here if necessary -->
+                  Your browser does not support the video tag.
+                </video>
+                
+              </li>
+              <li>
+                <img src="../../img/replace/replace4.webp" onclick="openModal();currentSlide(4)" alt="">
+              </li>
+            </ul>
+          </div>
+          <div class="swiper-container">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img src="../../img/replace/replace1.webp" onclick="openModal();currentSlide(1)" alt="">
+              </div>
+              <div class="swiper-slide">
+                <img src="../../img/replace/replace2.webp" onclick="openModal();currentSlide(2)" alt="">
+              </div>
+              <div class="swiper-slide">
+                <video autoplay loop muted playsinline  onclick="openModal();currentSlide(3)">
+  <!-- Vous pouvez fournir plusieurs sources pour une compatibilité multi-navigateurs -->
+  <source src="../../img/rcly/rcly.mp4" type="video/mp4">
+  <!-- Ajoutez des sources supplémentaires ici si nécessaire -->
+  Votre navigateur ne prend pas en charge la balise vidéo.
+</video>
+              </div>
+              <div class="swiper-slide">
+                <img src="../../img/replace/replace4.webp" onclick="openModal();currentSlide(4)" alt="">
+              </div>
+              <div class="swiper-slide">
+                <img src="../../img/replace/replace5.webp" onclick="openModal();currentSlide(5)" alt="">
+              </div>
+              <div class="swiper-slide">
+                <img src="../../img/replace/replace6.webp" onclick="openModal();currentSlide(6)" alt="">
+              </div>
+              <!-- Ajoutez d'autres images ici -->
+            </div>
+            <div class="swiper-button-prev control prev"></div>
+            <div class="swiper-button-next control next"></div>
+          </div>
+
+        </div>
+        <!-- The Modal/Lightbox -->
+<div id="myModal" class="modal" style="display:none">
+  
+  <div onclick="closeModal()" class="backgroundmodal"></div>
+  <span onclick="closeModal()" class="closelightbox cursor">&times;</span>
+  <div class="modal-content">
+
+    <div class="mySlides">
+        <img onclick="closeModal()" class="lightboximg" src="../../img/replace/replace1.webp">
+        <div class="captionbig">Models : Jotham and Lison
+          <br> Assist : Anita Jeanjean
+          </div>
+      </div>
+
+    <div class="mySlides">
+      <img onclick="closeModal()" class="lightboximg" src="../../img/replace/replace2.webp">
+    </div>
+
+    <div class="mySlides">
+      <video onclick="closeModal()" class="lightboximg" autoplay loop muted playsinline>
+        <!-- Vous pouvez fournir plusieurs sources pour une compatibilité multi-navigateurs -->
+        <source src="../../img/rcly/rcly.mp4" type="video/mp4">
+        <!-- Ajoutez des sources supplémentaires ici si nécessaire -->
+        Votre navigateur ne prend pas en charge la balise vidéo.
+      </video>
+    </div>
+
+    <div class="mySlides">
+      <img onclick="closeModal()" class="lightboximg" src="../../img/replace/replace4.webp">
+    </div>
+
+    <div class="mySlides">
+      <img onclick="closeModal()" class="lightboximg" src="../../img/replace/replace5.webp">
+    </div>
+
+    <div class="mySlides">
+      <img onclick="closeModal()" class="lightboximg" src="../../img/replace/replace6.webp">
+    </div>
+
+    <!-- Next/previous controls -->
+    <a id="prev" class="prev control" onclick="plusSlides(-1)"></a>
+    <a id="next" class="next control" onclick="plusSlides(1)"></a>
+  </div>
+</div>
+        </div>
+        <div class="footer2">
+          <marquee class="noselect" width="100%" direction="left">
+            <span>•°. *࿐ •°. *࿐ •°. *࿐ •°. *࿐ •°. *࿐ •°. *࿐</span>
+            <span>•°. *࿐ •°. *࿐ •°. *࿐ •°. *࿐ •°. *࿐ •°. *࿐</span>
+            <span>•°. *࿐ •°. *࿐ •°. *࿐ •°. *࿐ •°. *࿐ •°. *࿐</span>
+            </marquee>
+          <img class="coin1" src="icones/coin.svg" width="29px" height="29px" alt="yes" srcset="icones/coin.svg"/>
+          <img class="coin2" src="icones/coin.svg" width="29px" height="29px" alt="yes" srcset="icones/coin.svg"/>
+          <div class="footergrid">
+            <div id="previousPage" class="previousproject highlight"><div class="leftarrow">←</div><div class="lefttext">Projet précédent</div></div>
+            <div  id="nextPage" class="nextproject highlight"><div class="righttext">Projet suivant</div><div class="rightarrow">→</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="page2 contact">
+    <div class="contactgrid">
+      <!--<div class="cvdroite">
+        <h2>Compétences↘</h2>
+        <ul>
+          <li>Maîtrise de la suite Adobe</li>
+          <li>Anglais B2 First</li>
+        </ul>
+      </div>-->
+        <div class="circlezoom3">
+          <div class="circle2 button2">
+            <div class="close"></div>
+          </div>
+        </div>
+        <div class="boxcv">
+        <div id="menu">
+        </div>
+      </div>
+      </div>
+    </div>
+   <!-- <div class="circlezoom2">
+      <div class="circle2 button2">
+        <div class="close"></div>
+      </div>
+    </div>-->
+  </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.js"></script>
+<script>
+  var myAnimation = anime({
+  targets: '.circlezoom1, .circlezoom',
+  delay: function(el, index) {
+    return 1800 + index * 80;
+  },
+  scale:[0, 1],
+  duration: 1000,
+  });
+// Animation au survol
+
+var elements = document.querySelectorAll('.hoverzoom');
+
+elements.forEach(function(element) {
+  element.addEventListener('mouseenter', function() {
+    anime({
+      targets: element,
+      scale: 1.6,
+      duration: 1000,
+    });
+  });
+
+  element.addEventListener('mouseleave', function() {
+    anime({
+      targets: element,
+      scale: 1,
+      duration: 1000,
+    });
+  });
+});
+
+</script>
+<script>
+//SEPARATION
+document.addEventListener("DOMContentLoaded", function() {
+      // Récupérez le nom de la page actuelle (sans extension)
+      var currentPage = window.location.pathname.split("/").pop().split(".")[0];
+
+      // Récupérez toutes les balises img sur la page
+      var images = document.querySelectorAll('img');
+
+      // Parcourez chaque balise img
+      for (var i = 0; i < images.length; i++) {
+        var src = images[i].getAttribute('src');
+        // Remplacez toutes les occurrences du mot "replace" par le nom de la page active
+        src = src.replace(/replace/g, currentPage);
+        images[i].setAttribute('src', src);
+      }
+
+      // Récupérez toutes les balises <a> contenant des images
+      var imageLinks = document.querySelectorAll('a img');
+
+      // Parcourez chaque balise <a> contenant une image
+      for (var j = 0; j < imageLinks.length; j++) {
+        var link = imageLinks[j].parentElement;
+        var href = link.getAttribute('href');
+        // Remplacez toutes les occurrences du mot "replace" par le nom de la page active
+        href = href.replace(/replace/g, currentPage);
+        link.setAttribute('href', href);
+      }
+    });
+</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.2/Flip.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="./js/index.js"></script>
+<script src="./js/slider.js"></script>
+<script src="./js/curseur.js"></script>
+<script src="./js/menu.js"></script>
+<script src="./js/navigation.js"></script>
+</corps>
+</body>
+</html>
