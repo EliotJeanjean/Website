@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- HTML Meta Tags -->
+  <title>Portfolio — Eliot Jeanjean</title>
+  <meta name="description" content="Portfolio d'Eliot Jeanjean, photographe basé à Paris.">
+  <!-- Facebook Meta Tags -->
+  <meta property="og:url" content="https://www.eliotjeanjean.fr/portfolio">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Portfolio — Eliot Jeanjean">
+  <meta property="og:description" content="Portfolio d'Eliot Jeanjean, photographe basé à Paris.">
+  <meta property="og:image" content="https://eliotjeanjean.fr/img/favicon.png">
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="twitter:domain" content="eliotjeanjean.fr">
+  <meta name="twitter:title" content="Portfolio — Eliot Jeanjean">
+  <meta name="twitter:description" content="Portfolio d'Eliot Jeanjean, photographe basé à Paris.">
+  <meta name="twitter:image" content="https://eliotjeanjean.fr/img/favicon.png">
+
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+
+  <!-- PDF.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap');
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    ::-webkit-scrollbar { display: none; }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      background: #000;
+      color: #fff;
+      font-family: 'EB Garamond', 'ItalianGaramond', Georgia, serif;
+      overflow: hidden;
+      -webkit-font-smoothing: antialiased;
+      user-select: none;
+    }
+
+    /* ─── LOADER ─────────────────────────────────── */
+    #loader {
+      position: fixed;
+      inset: 0;
+      background: #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      gap: 2rem;
+    }
+
+    #loader-title {
+      font-size: clamp(1.4rem, 4vw, 2.2rem);
+      font-style: italic;
+      letter-spacing: 0.15em;
+      opacity: 0;
+    }
+
+    #loader-bar-wrap {
+      width: min(320px, 60vw);
+      height: 1px;
+      background: rgba(255,255,255,0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #loader-bar {
+      position: absolute;
+      top: 0; left: 0;
+      height: 100%;
+      width: 0%;
+      background: #fff;
+      transition: width 0.3s ease;
+    }
+
+    #loader-pct {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      opacity: 0.4;
+      font-style: normal;
+    }
+
+    /* ─── HEADER ─────────────────────────────────── */
+    #portfolio-header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      z-index: 50;
+      opacity: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, transparent 100%);
+    }
+
+    #portfolio-header .site-name {
+      font-size: 0.95rem;
+      font-style: italic;
+      letter-spacing: 0.12em;
+      text-decoration: none;
+      color: #fff;
+      transition: opacity 0.3s;
+    }
+    #portfolio-header .site-name:hover { opacity: 0.5; }
+
+    #portfolio-header .header-title {
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      opacity: 0.45;
+      font-style: normal;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    #btn-home {
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: border-color 0.3s, transform 0.3s;
+      text-decoration: none;
+      color: #fff;
+    }
+    #btn-home:hover {
+      border-color: #fff;
+      transform: scale(1.12);
+    }
+    #btn-home svg {
+      width: 14px; height: 14px;
+      fill: none; stroke: currentColor;
+      stroke-width: 1.5;
+      stroke-linecap: round; stroke-linejoin: round;
+    }
+
+    /* ─── PDF VIEWER ─────────────────────────────── */
+    #pdf-wrapper {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+    }
+
+    #pdf-container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow-y: auto;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      padding: 60px 0 80px;
+    }
+    #pdf-container::-webkit-scrollbar { display: none; }
+
+    .pdf-page-wrap {
+      position: relative;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+      max-width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+    .pdf-page-wrap.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .pdf-page-wrap canvas {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* ─── NAV BOTTOM ─────────────────────────────── */
+    #pdf-nav {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      z-index: 50;
+      opacity: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%);
+    }
+
+    #page-info {
+      font-size: 0.75rem;
+      letter-spacing: 0.22em;
+      opacity: 0.45;
+      font-style: normal;
+      min-width: 80px;
+      text-align: center;
+    }
+
+    .nav-btn {
+      width: 32px; height: 32px;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: border-color 0.3s, opacity 0.3s, transform 0.3s;
+      background: none;
+      color: #fff;
+    }
+    .nav-btn:hover {
+      border-color: #fff;
+      transform: scale(1.15);
+    }
+    .nav-btn:disabled {
+      opacity: 0.2;
+      pointer-events: none;
+    }
+    .nav-btn svg {
+      width: 12px; height: 12px;
+      fill: none; stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round; stroke-linejoin: round;
+    }
+
+    #btn-download {
+      position: fixed;
+      bottom: 80px;
+      right: 2rem;
+      width: 44px; height: 44px;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: border-color 0.3s, transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+      text-decoration: none;
+      color: #fff;
+      z-index: 50;
+      opacity: 0;
+    }
+    #btn-download:hover {
+      border-color: #fff;
+      transform: scale(1.18);
+    }
+    #btn-download svg {
+      width: 16px; height: 16px;
+      fill: none; stroke: currentColor;
+      stroke-width: 1.5;
+      stroke-linecap: round; stroke-linejoin: round;
+    }
+
+    /* ─── CROSSHAIR CURSOR ───────────────────────── */
+    .hair {
+      position: fixed;
+      background: rgba(255,255,255,0.12);
+      pointer-events: none;
+      z-index: 9999;
+      transition: opacity 0.3s;
+    }
+    #crosshair-h {
+      top: 50%;
+      left: 0; right: 0;
+      height: 1px;
+      transform: translateY(-50%);
+    }
+    #crosshair-v {
+      left: 50%;
+      top: 0; bottom: 0;
+      width: 1px;
+      transform: translateX(-50%);
+    }
+
+    /* ─── PROGRESS LINE ──────────────────────────── */
+    #progress-line {
+      position: fixed;
+      top: 0; left: 0;
+      height: 1px;
+      width: 0%;
+      background: rgba(255,255,255,0.4);
+      z-index: 60;
+      transition: width 0.2s ease;
+    }
+
+    /* ─── SCROLL HINT ────────────────────────────── */
+    #scroll-hint {
+      position: fixed;
+      bottom: 70px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 50;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Crosshair -->
+  <div id="crosshair-h" class="hair"></div>
+  <div id="crosshair-v" class="hair"></div>
+
+  <!-- Progress line -->
+  <div id="progress-line"></div>
+
+  <!-- Loader -->
+  <div id="loader">
+    <div id="loader-title">Portfolio</div>
+    <div id="loader-bar-wrap">
+      <div id="loader-bar"></div>
+    </div>
+    <div id="loader-pct">0%</div>
+  </div>
+
+  <!-- Header -->
+  <header id="portfolio-header">
+    <a href="/" class="site-name">©<em>Eliot Jeanjean</em></a>
+    <span class="header-title">Portfolio 2026</span>
+    <a href="/" id="btn-home" title="Retour à l'accueil">
+      <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    </a>
+  </header>
+
+  <!-- PDF Container -->
+  <div id="pdf-wrapper">
+    <div id="pdf-container"></div>
+  </div>
+
+  <!-- Bottom nav -->
+  <nav id="pdf-nav">
+    <button class="nav-btn" id="btn-prev" title="Page précédente">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <span id="page-info">— / —</span>
+    <button class="nav-btn" id="btn-next" title="Page suivante">
+      <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </nav>
+
+  <!-- Download button -->
+  <a id="btn-download" href="/EliotJeanjeanPortfolio2026.pdf" download title="Télécharger le portfolio">
+    <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+  </a>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+  <script>
+    // ─── CROSSHAIR CURSOR ───────────────────────────
+    const ch = document.getElementById('crosshair-h');
+    const cv = document.getElementById('crosshair-v');
+    document.addEventListener('mousemove', (e) => {
+      ch.style.top = e.clientY + 'px';
+      cv.style.left = e.clientX + 'px';
+    });
+
+    // ─── PDF.js CONFIG ──────────────────────────────
+    const pdfjsLib = window['pdfjs-dist/build/pdf'];
+    pdfjsLib.GlobalWorkerOptions.workerSrc =
+      'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+    const PDF_URL = '/EliotJeanjeanPortfolio2026.pdf';
+
+    const container   = document.getElementById('pdf-container');
+    const loaderBar   = document.getElementById('loader-bar');
+    const loaderPct   = document.getElementById('loader-pct');
+    const loaderTitle = document.getElementById('loader-title');
+    const loader      = document.getElementById('loader');
+    const header      = document.getElementById('portfolio-header');
+    const pdfWrapper  = document.getElementById('pdf-wrapper');
+    const nav         = document.getElementById('pdf-nav');
+    const btnDown     = document.getElementById('btn-download');
+    const btnPrev     = document.getElementById('btn-prev');
+    const btnNext     = document.getElementById('btn-next');
+    const pageInfo    = document.getElementById('page-info');
+    const progressLine = document.getElementById('progress-line');
+
+    let pdfDoc      = null;
+    let totalPages  = 0;
+    let currentPage = 1;
+    let pageWraps   = [];
+
+    // Animate loader title in
+    gsap.to('#loader-title', { opacity: 1, y: 0, duration: 1.2, ease: 'power3.out', delay: 0.2 });
+
+    // ─── LOAD PDF ───────────────────────────────────
+    const loadingTask = pdfjsLib.getDocument(PDF_URL);
+
+    loadingTask.onProgress = (progress) => {
+      if (progress.total > 0) {
+        const pct = Math.round((progress.loaded / progress.total) * 100);
+        loaderBar.style.width = pct + '%';
+        loaderPct.textContent = pct + '%';
+      }
+    };
+
+    loadingTask.promise.then(async (pdf) => {
+      pdfDoc = pdf;
+      totalPages = pdf.numPages;
+
+      // Render all pages
+      for (let i = 1; i <= totalPages; i++) {
+        await renderPage(i);
+        const pct = Math.round((i / totalPages) * 100);
+        loaderBar.style.width = pct + '%';
+        loaderPct.textContent = pct + '%';
+      }
+
+      // All done → reveal UI
+      revealUI();
+
+    }).catch((err) => {
+      console.error('PDF load error:', err);
+      loaderPct.textContent = 'Erreur de chargement.';
+    });
+
+    // ─── RENDER PAGE ────────────────────────────────
+    async function renderPage(num) {
+      const page = await pdfDoc.getPage(num);
+
+      // Scale to fit viewport width (with some padding), max 2x device pixel ratio
+      const viewportWidth = window.innerWidth;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const pdfViewport = page.getViewport({ scale: 1 });
+      const scale = (viewportWidth / pdfViewport.width) * dpr;
+      const scaledViewport = page.getViewport({ scale });
+
+      const canvas = document.createElement('canvas');
+      canvas.width  = scaledViewport.width;
+      canvas.height = scaledViewport.height;
+      canvas.style.width  = (scaledViewport.width  / dpr) + 'px';
+      canvas.style.height = (scaledViewport.height / dpr) + 'px';
+
+      const ctx = canvas.getContext('2d');
+      await page.render({ canvasContext: ctx, viewport: scaledViewport }).promise;
+
+      const wrap = document.createElement('div');
+      wrap.className = 'pdf-page-wrap';
+      wrap.dataset.page = num;
+      wrap.appendChild(canvas);
+      container.appendChild(wrap);
+      pageWraps.push(wrap);
+
+      return wrap;
+    }
+
+    // ─── REVEAL UI ──────────────────────────────────
+    function revealUI() {
+      // Hide loader with GSAP
+      gsap.to(loader, {
+        opacity: 0, duration: 1, ease: 'power2.inOut', delay: 0.3,
+        onComplete: () => { loader.style.display = 'none'; }
+      });
+
+      // Reveal panels
+      gsap.to(pdfWrapper, { opacity: 1, duration: 1.2, ease: 'power2.out', delay: 0.6 });
+      gsap.to(header, { opacity: 1, duration: 1, ease: 'power2.out', delay: 0.8 });
+      gsap.to(nav, { opacity: 1, duration: 1, ease: 'power2.out', delay: 0.9 });
+      gsap.to(btnDown, { opacity: 1, duration: 1, ease: 'power2.out', delay: 1.1 });
+
+      // Trigger intersection observer for page fade-in
+      setupObserver();
+      updateNav();
+    }
+
+    // ─── INTERSECTION OBSERVER ───────────────────────
+    function setupObserver() {
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.05 });
+
+      pageWraps.forEach(w => obs.observe(w));
+    }
+
+    // ─── SCROLL TRACKING ────────────────────────────
+    container.addEventListener('scroll', () => {
+      const scrollTop = container.scrollTop;
+      const maxScroll = container.scrollHeight - container.clientHeight;
+      const pct = maxScroll > 0 ? (scrollTop / maxScroll) * 100 : 0;
+      progressLine.style.width = pct + '%';
+
+      // Find current page
+      let found = 1;
+      pageWraps.forEach((w, i) => {
+        const rect = w.getBoundingClientRect();
+        if (rect.top <= window.innerHeight * 0.5) found = i + 1;
+      });
+      if (found !== currentPage) {
+        currentPage = found;
+        updateNav();
+      }
+    });
+
+    // ─── NAV BUTTONS ────────────────────────────────
+    function scrollToPage(num) {
+      if (num < 1 || num > totalPages) return;
+      const wrap = pageWraps[num - 1];
+      if (!wrap) return;
+      wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      currentPage = num;
+      updateNav();
+    }
+
+    function updateNav() {
+      pageInfo.textContent = currentPage + ' / ' + totalPages;
+      btnPrev.disabled = currentPage <= 1;
+      btnNext.disabled = currentPage >= totalPages;
+    }
+
+    btnPrev.addEventListener('click', () => scrollToPage(currentPage - 1));
+    btnNext.addEventListener('click', () => scrollToPage(currentPage + 1));
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') scrollToPage(currentPage + 1);
+      if (e.key === 'ArrowUp'   || e.key === 'ArrowLeft')  scrollToPage(currentPage - 1);
+    });
+  </script>
+</body>
+</html>
